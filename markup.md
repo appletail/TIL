@@ -1,3 +1,30 @@
+# 마크다운
+
+### 마크다운
+- 개발 문서의 시작과 끝!
+- 텍스트 기반의 가벼운 마크어(markup)언어
+    - 마크업 태그(tag)를 이용하여 문서의 구조를 나타내는 것
+- 문서의 구조와 내용을 같이 쉽고 빠르게 적고자 탄생
+- 대부분의 웹 에디터에서 지원(각종 블로그 사이트 등)
+- Jupyter Notebook, Notion, 다양한 메모장 프로그램 등
+
+### Github 문서의 시작과 끝!
+
+- README.md파일을 통해 오픈 소스의 공식문서 작성
+- 개인 프로젝트의 소개문서 작성
+- 매일 학습한 내용 정리  => 개발문서의 시작과 끝
+- 마크다운을 이용한 블로그 운영
+
+### Typora
+- 실시간 마크다운 변환 (미리보기) 제공
+- 이미지 또는 표 삽입시 매우 편한 UI 제공
+- VS Code등의 프로그램도 마크다운을 지원하지만 전용 프로그램을 사용하면 더 편하게 사용가능
+
+### # 헤딩(Heading)
+- 문서의 제목이나 소제목으로 사용
+- #의 개수에 따라 제목의 수준을 구별 (h1~h6)
+
+
 # 마크다운 문법
 
 ## 제목(heading)
@@ -60,12 +87,12 @@ int num = 10;
 
 ## 이미지
 
-<img src="https://assets.repress.co.kr/photos/0fdfb576cf8e0753ee3690bfebd21eba/original.jpg" alt="image" style="zoom: 25%;" />
-
+![image]("https://assets.repress.co.kr/photos/0fdfb576cf8e0753ee3690bfebd21eba/original.jpg")
+- 인터넷 주소로 사진띄우기 
 ![sample](C:\Users\multicampus\Desktop\Jan\images/20220527_151518.jpg)
-
+- 절대주소
 ![sample](./images/20220527_151518.jpg)
-
+- 상대주소(같은 리포지토리내에 사진파일이 있어야 사진이 뜬다.)
 ---
 
 ## 링크
