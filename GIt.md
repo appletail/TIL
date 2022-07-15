@@ -55,6 +55,9 @@
 - git diff 주소1 주소2
   - 두 커밋을 비교해서 무엇이 바뀌었는지 비교해줌
 
+- git rm --cached 파일이름
+  - Staging Area에 올린 파일을 다시 내릴때 사용
+
 ---
 
 ## gitignore
