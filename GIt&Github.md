@@ -1,5 +1,5 @@
 # Git/Github
----
+
 ### git 기본기
 
 - Working Directory - 내가 작업하고 잇는 실제 디렉토리
@@ -26,7 +26,7 @@
 
 - git remote add origin https://github.com/appletail/SSAFY.git
   - main: 기본브랜치 이름, local repository
-  - origin: 'https://github.com/appletail/SSAFY.git'의 별명
+  - origin: 'https://github.com/appletail/SSAFY.git' 의 별명
 
 - git push -u origin main
   - -u 를 사용할 경우 내가 설정한 상세한 세팅으로 업로드하고 이후에는 git push만 써도 된다.
