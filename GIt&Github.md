@@ -31,10 +31,10 @@
 - git push -u origin main
   - -u 를 사용할 경우 내가 설정한 상세한 세팅으로 업로드하고 이후에는 git push만 써도 된다.
 
-- git push 
+- git push 리모트이름 브랜치이름
   - 로컬에서 변경한 것을 올리는 것
 
-- git pull
+- git pull 리모트이름 브랜치이름
   - 온라인에서 변경된 것을 내려받는 것
 
 - git clone https://github.com/appletail/SSAFY.git
