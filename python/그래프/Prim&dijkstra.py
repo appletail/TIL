@@ -98,3 +98,89 @@ for i in range(E):
     G[n1][n2] = w
 
 dijk()
+
+
+# 가중치 계산 다익스트라
+INF = int(1e9)
+
+def dijk():
+    U = []
+    D = [INF] * (V+1)
+    D[0] = 0
+    P = [INF] * (V+1)
+
+    while len(U) < V + 1:
+        minV = INF
+        # 가장 작은 노드를 찾음
+        for i in range(V+1):
+            if i in U: continue
+            if minV > D[i]:
+                minV = D[i]
+                curV = i
+
+        U.append(curV)
+
+        # 해당 노드를 방문하는 작은 가중치로 갱신
+        for i in range(V+1):
+            if i in U: continue
+            if G[curV][i] and D[i] > G[curV][i] + D[curV]:
+                D[i] = G[curV][i] + D[curV]
+                P[i] = curV
+
+    print(U, D, P)
+
+
+V, E = map(int, input().split())
+
+G = [[0] * (V+1) for _ in range(V+1)]
+
+for i in range(E):
+    n1, n2, w = map(int, input().split())
+    G[n1][n2] = w
+
+dijk()
+
+
+# heapq를 이용하면 가장 작은 값을 찾는 연산인 부분을 O(n)에서 O(log n) 으로 바꿀 수 있음
+import heapq
+
+INF = int(1e9)
+
+
+def dijk():
+    U = []
+    D = [INF] * (V+1)
+    D[0] = 0
+    P = [INF] * (V+1)
+
+    q = []
+    heapq.heappush(q, (0, 0))
+
+    while len(U) < V + 1:
+        # 가장 작은 노드를 찾음
+        weight, curV = heapq.heappop(q)
+        if curV in U: continue
+
+        U.append(curV)
+
+        # 해당 노드를 방문하는 작은 가중치로 갱신
+        for i in range(V+1):
+            if i in U: continue
+            if G[curV][i] and D[i] > G[curV][i] + D[curV]:
+                D[i] = G[curV][i] + D[curV]
+                P[i] = curV
+                heapq.heappush(q, (D[i], i))
+
+    print(U, D, P)
+
+
+V, E = map(int, input().split())
+
+G = [[0] * (V+1) for _ in range(V+1)]
+
+for i in range(E):
+    n1, n2, w = map(int, input().split())
+    G[n1][n2] = w
+
+dijk()
+

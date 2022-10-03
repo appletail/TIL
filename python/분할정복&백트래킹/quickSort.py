@@ -2,14 +2,14 @@
 # 양 끝에서 출발하여 서로 피벗보다 작고 큰게 나오면 서로 교환
 # 피벗 기준으로 좌우 나눠서 각각 다시 진행
 def partitionH(L, R):
-    p = L
+    p = L   # 가장 왼쪽이 피벗
     i = L + 1
     j = R
 
     while i <= j:
-        while i <= j and arr[i] <= arr[p]:
+        while i <= j and arr[i] <= arr[p]:  # 왼쪽
             i += 1
-        while i <= j and arr[j] >= arr[p]:
+        while i <= j and arr[j] >= arr[p]:  # 오른쪽
             j -= 1
         if i < j:
             arr[i], arr[j] = arr[j], arr[i]
@@ -21,16 +21,16 @@ def partitionH(L, R):
     return j
 
 
-# Lomuto-Partiotion
+# Lomuto-Partition
 # 왼쪽에서 i와 j를 같이 출발하여 더 p보다 더 큰게 나오면 i는 멈추고 j만 계속 이동
 def partitionL(L, R):
-    p = R
-    i = L - 1  # 현재 p보다 작은 것의 위치(시작 점은 -1을 하여 아무것도 안 가리키게 한다.
-    # j = L 아래 for에서 j를 설정해주기 때문
+    p = R   # 가장 오른쪽이 피벗
+    i = L - 1  # 현재 p보다 작은 것의 위치(시작 점은 -1로 하여 아무것도 안 가리키게 한다.)
+    # j = L 아래 for문에서 j를 설정해주기 때문에 없어도 됨
     for j in range(L, R):   # p가 R이라서 R인덱스 제외
         if arr[j] < arr[p]:
             i += 1
-            # i += 1을 하면 i와 j가 같아지는 경우는 자기 자신과 자신을 교환
+            # i += 1을 하며 i와 j가 같아지는 경우는 자기 자신과 자신을 교환
             # 안 같아지는 경우는 피벗 기준으로 교환
             arr[j], arr[i] = arr[i], arr[j]
 
@@ -40,10 +40,22 @@ def partitionL(L, R):
     return i
 
 
+# Lomuto-Partition (셀프 수정)
+def partitionL2(L, R):
+    p = R
+    i = L - 1
+    for j in range(L, R + 1):
+        if arr[j] <= arr[p]:
+            i += 1
+            arr[j], arr[i] = arr[i], arr[j]
+
+    return i
+
+
 def quick_s(L, R):
     if L < R:
-        p = partitionH(L, R)
-        # p = partitionL(L, R)
+        # p = partitionH(L, R)    # Hoare-Partition
+        p = partitionL(L, R)    # Lomuto-Partiotion
         quick_s(L, p - 1)
         quick_s(p + 1, R)
 
