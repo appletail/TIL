@@ -10,7 +10,7 @@ for i in range(N - R + 1):
 # 재귀를 이용해 n개에서 r개를 고르는 조합
 def nCr(n, r, s):
     if r == 0:
-        print(*comb)
+        print(comb)
     else:
         for i in range(s, n - r + 1):
             comb[r - 1] = A[i]
